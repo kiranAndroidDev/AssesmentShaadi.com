@@ -8,15 +8,18 @@
                 name="result"
                 type="com.example.demoshaadi.api.model.Results"/>
 
-        <variable
-                name="itemClickListener"
-                type="android.view.View.OnClickListener"/>
 
         <variable
                 name="description"
                 type="String"/>
-        <variable name="isConnect" type="boolean"/>
-        <variable name="isDecline" type="boolean"/>
+
+        <variable
+                name="isConnect"
+                type="boolean"/>
+
+        <variable
+                name="isDecline"
+                type="boolean"/>
 
     </data>
 
@@ -50,10 +53,10 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="3dp"
-                        android:text="few hours ago"
-                        android:textSize="13sp"/>
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="3dp"
+                        android:text="@string/few_hours_ago"
+                        android:textSize="13sp" tools:ignore="RelativeOverlap"/>
 
                 <TextView
                         android:id="@+id/name_txt"
@@ -87,9 +90,9 @@
                     android:orientation="horizontal"
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="@dimen/margin_10"
-                    android:layout_marginRight="33dp"
-                    android:layout_marginLeft="30dp"
-                    android:layout_alignParentBottom="true">
+                    android:layout_marginEnd="33dp"
+                    android:layout_marginStart="30dp"
+                    android:baselineAligned="false">
 
 
                 <LinearLayout
@@ -99,12 +102,23 @@
                         android:layout_marginTop="@dimen/margin_10"
                         android:orientation="vertical"
                         android:gravity="center">
-
-                    <com.example.demoshaadi.custom_views.CircleImageView
-                            android:id="@+id/decline_img"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:src="@{isDecline? @drawable/cancel_red:@drawable/cancel_icon24}"/>
+                    <FrameLayout android:layout_width="60dp"
+                                 android:layout_height="60dp">
+                        <com.example.demoshaadi.custom_views.CircleImageView
+                                android:id="@+id/decline_img_bck"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@{isDecline? @drawable/circle_red_filled:@drawable/circle_gray}"
+                                tools:ignore="ContentDescription"/>
+                        <com.example.demoshaadi.custom_views.CircleImageView
+                                android:id="@+id/decline_img"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:scaleType="centerCrop"
+                                android:background="@android:color/transparent"
+                                android:src="@{isDecline? @drawable/ic_close_white_24dp:@drawable/ic_close_gray_24dp}"/>
+                    </FrameLayout>
                     <TextView
                             android:id="@+id/decline_txt"
                             android:layout_width="wrap_content"
@@ -114,21 +128,33 @@
                             android:padding="@dimen/margin_5"
                             android:layout_marginTop="@dimen/margin_6"
                             android:text="@string/decline"
-                            android:textSize="12sp"/>
+                            android:textSize="13sp"/>
                 </LinearLayout>
+
                 <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical"
-                        android:layout_marginTop="@dimen/margin_5"
+                        android:layout_marginTop="@dimen/margin_10"
                         android:gravity="center">
-                    <com.example.demoshaadi.custom_views.CircleImageView
-                            android:id="@+id/accept_img"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:src="@{isConnect? @drawable/check_icon:@drawable/check_grey_icon}"
-                            tools:ignore="ContentDescription"/>
+                    <FrameLayout android:layout_width="60dp" android:layout_height="60dp">
+                        <com.example.demoshaadi.custom_views.CircleImageView
+                                android:id="@+id/accept_img_bck"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@{isConnect? @drawable/circle_green_filled:@drawable/circle_gray}"
+                                tools:ignore="ContentDescription"/>
+                        <com.example.demoshaadi.custom_views.CircleImageView
+                                android:id="@+id/accept_img"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:scaleType="centerCrop"
+                                android:layout_gravity="center"
+                                android:background="@android:color/transparent"
+                                android:src="@{isConnect? @drawable/ic_done_white_24dp:@drawable/ic_done_gray_24dp}"
+                                tools:ignore="ContentDescription"/>
+                    </FrameLayout>
                     <TextView
                             android:id="@+id/accept_text"
                             android:layout_width="wrap_content"
@@ -136,9 +162,11 @@
                             android:layout_marginBottom="5dp"
                             android:gravity="center"
                             android:padding="@dimen/margin_5"
+                            android:layout_marginTop="@dimen/margin_6"
                             android:text="@string/connect"
-                            android:textSize="12sp"/>
+                            android:textSize="13sp"/>
                 </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>
