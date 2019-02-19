@@ -38,13 +38,12 @@
                 android:orientation="vertical">
             <RelativeLayout android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
                             android:layout_marginBottom="20dp">
 
                 <com.example.demoshaadi.custom_views.CircleImageView
                         android:id="@+id/profile_img"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="@dimen/size_100"
+                        android:layout_height="@dimen/size_100"
                         android:layout_centerHorizontal="true"
                         android:background="@drawable/circle_gray"
                         android:layout_marginTop="@dimen/margin_10"
@@ -54,9 +53,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:layout_marginEnd="3dp"
+                        android:layout_marginEnd="@dimen/size_3"
                         android:text="@string/few_hours_ago"
-                        android:textSize="13sp" tools:ignore="RelativeOverlap"/>
+                        android:textSize="@dimen/textsize_13"
+                        tools:ignore="RelativeOverlap"/>
 
                 <TextView
                         android:id="@+id/name_txt"
@@ -68,7 +68,7 @@
                         android:padding="@dimen/padding_7"
                         android:text="@{result.name.title.concat(@string/space)+result.name.first.concat(@string/space)+result.name.last}"
                         android:textColor="@android:color/holo_blue_bright"
-                        android:textSize="18sp"/>
+                        android:textSize="@dimen/textsize_18"/>
 
                 <TextView
                         android:id="@+id/description_txt"
@@ -76,7 +76,7 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/name_txt"
                         android:layout_centerHorizontal="true"
-                        android:padding="3dp"
+                        android:padding="@dimen/size_3"
                         android:textAlignment="center"
                         android:gravity="center"
                         android:text="@{description}"
@@ -88,11 +88,10 @@
                     android:layout_height="wrap_content"
                     android:weightSum="2"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="@dimen/size_5"
                     android:layout_marginTop="@dimen/margin_10"
-                    android:layout_marginEnd="33dp"
-                    android:layout_marginStart="30dp"
-                    android:baselineAligned="false">
+                    android:layout_marginEnd="@dimen/margin_25"
+                    android:layout_marginStart="@dimen/margin_25">
 
 
                 <LinearLayout
@@ -102,18 +101,26 @@
                         android:layout_marginTop="@dimen/margin_10"
                         android:orientation="vertical"
                         android:gravity="center">
-                    <FrameLayout android:layout_width="60dp"
-                                 android:layout_height="60dp">
+                    <FrameLayout android:layout_width="@dimen/size_70"
+                                 android:layout_height="@dimen/size_70">
+                        <com.example.demoshaadi.custom_views.CircleImageView
+                                android:layout_width="@dimen/size_70"
+                                android:layout_height="@dimen/size_70"
+                                android:background="@{isDecline? @drawable/circle_red:@drawable/circle_gray}"
+                                tools:ignore="ContentDescription"/>
+
                         <com.example.demoshaadi.custom_views.CircleImageView
                                 android:id="@+id/decline_img_bck"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:background="@{isDecline? @drawable/circle_red_filled:@drawable/circle_gray}"
+                                android:layout_width="@dimen/size_57"
+                                android:layout_gravity="center"
+                                android:layout_height="@dimen/size_57"
+                                android:background="@{isDecline? @drawable/circle_red_filled:@drawable/transparent_circle}"
                                 tools:ignore="ContentDescription"/>
+
                         <com.example.demoshaadi.custom_views.CircleImageView
                                 android:id="@+id/decline_img"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="@dimen/size_40"
+                                android:layout_height="@dimen/size_40"
                                 android:layout_gravity="center"
                                 android:scaleType="centerCrop"
                                 android:background="@android:color/transparent"
@@ -128,7 +135,7 @@
                             android:padding="@dimen/margin_5"
                             android:layout_marginTop="@dimen/margin_6"
                             android:text="@string/decline"
-                            android:textSize="13sp"/>
+                            android:textSize="@dimen/textsize_13"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -138,17 +145,27 @@
                         android:orientation="vertical"
                         android:layout_marginTop="@dimen/margin_10"
                         android:gravity="center">
-                    <FrameLayout android:layout_width="60dp" android:layout_height="60dp">
+                    <FrameLayout android:layout_width="@dimen/size_70"
+                                 android:layout_height="@dimen/size_70">
+                        <com.example.demoshaadi.custom_views.CircleImageView
+                                android:layout_width="@dimen/size_70"
+                                android:layout_height="@dimen/size_70"
+                                android:layout_gravity="center"
+                                android:background="@{isConnect? @drawable/circle_green:@drawable/circle_gray}"
+                                tools:ignore="ContentDescription"/>
+
                         <com.example.demoshaadi.custom_views.CircleImageView
                                 android:id="@+id/accept_img_bck"
-                                android:layout_width="60dp"
-                                android:layout_height="60dp"
-                                android:background="@{isConnect? @drawable/circle_green_filled:@drawable/circle_gray}"
+                                android:layout_width="@dimen/size_57"
+                                android:layout_gravity="center"
+                                android:layout_height="@dimen/size_57"
+                                android:background="@{isConnect? @drawable/circle_green_filled:@drawable/transparent_circle}"
                                 tools:ignore="ContentDescription"/>
+
                         <com.example.demoshaadi.custom_views.CircleImageView
                                 android:id="@+id/accept_img"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="@dimen/size_40"
+                                android:layout_height="@dimen/size_40"
                                 android:scaleType="centerCrop"
                                 android:layout_gravity="center"
                                 android:background="@android:color/transparent"
