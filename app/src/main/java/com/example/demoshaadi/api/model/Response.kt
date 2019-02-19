@@ -2,7 +2,7 @@ package com.example.demoshaadi.api.model
 
 import com.google.gson.annotations.SerializedName
 
-public class Response{
+ class Response{
     @SerializedName("results")
     private val results: List<Results>? = null
 

@@ -10,7 +10,6 @@ import com.example.demoshaadi.R
 import com.example.demoshaadi.base.BaseActivity
 import com.example.demoshaadi.databinding.ActivityMainBinding
 import com.example.demoshaadi.main.viewmodel.MainViewModel
-import com.facebook.drawee.backends.pipeline.Fresco
 import java.util.ArrayList
 import javax.inject.Inject
 
@@ -22,7 +21,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Fresco.initialize(this)
         mainViewModel = ViewModelProviders.of(this, myViewModelFactory).get(MainViewModel::class.java)
         initUserDataAdapter()
         observeDataChange()
