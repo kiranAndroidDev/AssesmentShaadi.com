@@ -42,8 +42,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     binding?.setShowLoading(false)
                     loadNewsData(it.data!!)
                 }
-                -1 // show error
-                -> binding?.setShowLoading(false)
+                -1 -> binding?.setShowLoading(false)
             }
         } )
 
