@@ -16,8 +16,8 @@ import javax.inject.Inject
 class MainActivity : BaseActivity<ActivityMainBinding>() {
     private var mainViewModel: MainViewModel? = null
     private var userListAdapter: UserListAdapter? = null
-    @Inject lateinit var myViewModelFactory: MyViewModelFactory
 
+    @Inject lateinit var myViewModelFactory: MyViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +31,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         userListAdapter = UserListAdapter(this, ArrayList<Results>())
         binding?.rvUserList?.setLayoutManager(LinearLayoutManager(this))
         binding?.rvUserList?.setAdapter(userListAdapter)
-
     }
 
     private fun observeDataChange() {
@@ -45,13 +44,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 -1 -> binding?.setShowLoading(false)
             }
         } )
-
     }
 
     private fun loadNewsData(data: Response) {
         userListAdapter!!.addNewsList(data.getResults()!!)
     }
-
 
     override val layout: Int = R.layout.activity_main
 }

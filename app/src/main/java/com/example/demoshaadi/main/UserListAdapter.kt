@@ -24,8 +24,6 @@ class UserListAdapter(private val context: Context, private val resultsList: Mut
         layoutInflater = LayoutInflater.from(context)
     }
 
-    fun removeListener() {}
-
     fun addNewsList(newsList: List<Results>) {
         if (!this.resultsList.isEmpty()) {
             this.resultsList.clear()
