@@ -40,11 +40,7 @@ def supportVersion = '28.0.0'
 def retrofitVersion = '2.3.0'
 def rxJavaVersion = '2.1.0'
 def daggerVersion = '2.19'
-def mockitoVersion = '2.19.0'
 def gsonVersion = '2.6.2'
-def frescoVersion = '1.11.0'
-def hamcrestVersion = '2.1.0'
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "com.android.support:appcompat-v7:$supportVersion"
